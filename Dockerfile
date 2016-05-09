@@ -52,7 +52,7 @@ find /etc/php5/cli/conf.d/ -name "*.ini" -exec sed -i -re 's/^(\s*)#(.*)/\1;\2/g
 
 # install php-yaf framewrok
 RUN pecl install yaf
-ADD ./conf/yaf.ini /etc/php5/mods-available/yaf.ini
+ADD conf/yaf.ini /etc/php5/mods-available/yaf.ini
 RUN ln -s /etc/php5/mods-available/yaf.ini /etc/php5/fpm/conf.d/20-yaf.ini
 RUN ln -s /etc/php5/mods-available/yaf.ini /etc/php5/cli/conf.d/20-yaf.ini
 
