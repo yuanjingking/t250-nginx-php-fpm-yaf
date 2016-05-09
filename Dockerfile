@@ -50,6 +50,12 @@ sed -i -e "s/pm.max_requests = 500/pm.max_requests = 200/g" /etc/php5/fpm/pool.d
 RUN sed -i -e "s/;listen.mode = 0660/listen.mode = 0750/g" /etc/php5/fpm/pool.d/www.conf && \
 find /etc/php5/cli/conf.d/ -name "*.ini" -exec sed -i -re 's/^(\s*)#(.*)/\1;\2/g' {} \;
 
+# install php-yaf framewrok
+RUN pecl install yaf
+ADD ./conf/yaf.ini /etc/php5/mods-available/yaf.ini
+RUN ln -s /etc/php5/mods-available/yaf.ini /etc/php5/fpm/conf.d/20-yaf.ini
+RUN ln -s /etc/php5/mods-available/yaf.ini /etc/php5/cli/conf.d/20-yaf.ini
+
 # mycrypt conf
 RUN php5enmod mcrypt
 
