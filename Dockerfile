@@ -82,7 +82,6 @@ RUN chmod 755 /start.sh
 VOLUME ["/usr/share/nginx/html"]
 RUN mkdir -p /upload/
 RUN chmod -R 777 /upload/
-VOLUME ["/upload"]
 
 # add test PHP file
 ADD src/index.php /usr/share/nginx/html/index.php
