@@ -80,8 +80,6 @@ RUN chmod 755 /start.sh
 
 # Setup Volume
 VOLUME ["/usr/share/nginx/html"]
-RUN mkdir -p /upload/
-RUN chmod -R 777 /upload/
 
 # add test PHP file
 ADD src/index.php /usr/share/nginx/html/index.php
